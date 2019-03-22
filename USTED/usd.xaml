@@ -1,0 +1,184 @@
+﻿<Window x:Class="USTED.usd"
+        
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:USTED"
+        mc:Ignorable="d"
+        Title="usd" Height="750" Width="1100" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="Transparent" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+            <Grid>
+                <materialDesign:ColorZone Mode="PrimaryDark">
+                    <StackPanel HorizontalAlignment="Right">
+                        <Button Width="30" Height="30" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0" Click="Button_Click">
+                            <materialDesign:PackIcon Kind="WindowClose"/>
+                        </Button>
+                    </StackPanel>
+                </materialDesign:ColorZone>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <materialDesign:ColorZone Mode="PrimaryMid">
+                <TextBlock Text="Welcome to USTD - Update Students Data" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="30 50 0 10"/>
+            </materialDesign:ColorZone>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <materialDesign:ColorZone Mode="Standard">
+                <TextBlock Text="Informacion general" FontSize="15" FontStyle="Oblique" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="30 0 0 0"/>
+            </materialDesign:ColorZone>
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="0,10,0,198" Grid.RowSpan="3">
+            <StackPanel Orientation="Vertical" Margin="40 20 0 0">
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock><InlineUIContainer>
+                            <materialDesign:PackIcon Kind="Account"  Foreground="{Binding BorderBrush, ElementName=txtUbicacion}" VerticalAlignment="Bottom" Margin="0 4"/>
+                        </InlineUIContainer><Run Text=" "/><InlineUIContainer>
+                            <TextBox x:Name="txtCuenta" Width="300" materialDesign:HintAssist.Hint="Cuenta alumno" materialDesign:HintAssist.IsFloating="True" KeyDown="TxtCuenta_KeyDown"/>
+                        </InlineUIContainer></TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal " Margin="0 20 0 0">
+                    <TextBlock>
+                            <materialDesign:PackIcon Kind="Location"  Foreground="{Binding ElementName=txtUbicacion, Path=BorderBrush}" VerticalAlignment="Bottom" Margin="0 4"/>
+                            <TextBox x:Name="txtUbicacion" Width="897" materialDesign:HintAssist.Hint="Ubicacion" materialDesign:HintAssist.IsFloating="True"/>
+                    </TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                    <ComboBox Width="209" x:Name="txtPais" materialDesign:HintAssist.Hint="Seleccione un pais"/>
+
+                    <ComboBox Margin="30 0 0 0" Width="232" x:Name="txtDepartamento" materialDesign:HintAssist.Hint="Seleccione un departamento" MouseDoubleClick="TxtDepartamento_MouseDoubleClick"/>
+                    <ComboBox Margin="40 0 0 0" Width="246" x:Name="txtMunicipio" materialDesign:HintAssist.Hint="Seleccione un Municipio" MouseDoubleClick="TxtMunicipio_MouseDoubleClick"/>
+                    <ComboBox Margin="40 0 0 0" Width="246" x:Name="txtColonia" materialDesign:HintAssist.Hint="Seleccione una colonia" SelectionChanged="TxtColonia_SelectionChanged"
+                              MouseDoubleClick="TxtColonia_MouseDoubleClick"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 30 0 0">
+                    <TextBlock>
+                            <materialDesign:PackIcon Kind="Phone"  Foreground="{Binding ElementName=txtTelefono, Path=BorderBrush}" VerticalAlignment="Bottom" Margin="0 4"/>
+                            <TextBox x:Name="txtTelefono" Width="150" materialDesign:HintAssist.Hint="Telefono" materialDesign:HintAssist.IsFloating="True"/>
+                    </TextBlock>
+
+                    <TextBlock Margin="20 0 0 0">
+                            <materialDesign:PackIcon Kind="CellphoneIphone"  Foreground="{Binding ElementName=txtCelular, Path=BorderBrush}" VerticalAlignment="Bottom" Margin="0 4"/>
+                            <TextBox x:Name="txtCelular" Width="150" materialDesign:HintAssist.Hint="Celular" materialDesign:HintAssist.IsFloating="True"/>
+                    </TextBlock>
+
+                    <TextBlock Margin="20 0 0 0">
+                            <materialDesign:PackIcon Kind="Fax"  Foreground="{Binding ElementName=txtFax, Path=BorderBrush}" VerticalAlignment="Bottom" Margin="0 4"/>
+                            <TextBox x:Name="txtFax" Width="150" materialDesign:HintAssist.Hint="Fax" materialDesign:HintAssist.IsFloating="True"/>
+                    </TextBlock>
+
+                    <TextBlock Margin="20 0 0 0">
+                            <materialDesign:PackIcon Kind="Email"  Foreground="{Binding ElementName=txtFax, Path=BorderBrush}" VerticalAlignment="Bottom" Margin="0 4"/>
+                            <TextBox x:Name="txtEmail1" Width="200" materialDesign:HintAssist.Hint="Email 1" materialDesign:HintAssist.IsFloating="True"/>
+                    </TextBlock>
+
+                    <TextBlock Margin="20 0 0 0">
+                            <materialDesign:PackIcon Kind="Email"  Foreground="{Binding ElementName=txtFax, Path=BorderBrush}" VerticalAlignment="Bottom" Margin="0 4"/>
+                            <TextBox x:Name="txtEmail2" Width="200" materialDesign:HintAssist.Hint="Email 2" materialDesign:HintAssist.IsFloating="True"/>
+                    </TextBlock>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="4" Margin="0,95,0,0">
+            <materialDesign:ColorZone Mode="Standard" Margin="1,-40,-1,0">
+                <TextBlock Text="Informacion Laboral" FontStyle="Oblique" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="30 0 0 0"/>
+            </materialDesign:ColorZone>
+        </Grid>
+
+        <Grid Grid.Row="4" Margin="0,23,0,0">
+            <StackPanel Orientation="Vertical" Margin="40,60,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>
+                            <materialDesign:PackIcon Kind="Worker"  Foreground="{Binding ElementName=txtCompañia, Path=BorderBrush}" VerticalAlignment="Bottom" Margin="0 4"/>
+                            <TextBox x:Name="txtCompañia" Width="400" materialDesign:HintAssist.Hint="Compañia" materialDesign:HintAssist.IsFloating="True"/>
+                    </TextBlock>
+
+                    <TextBlock Margin="30 0 0 0">
+                            <materialDesign:PackIcon Kind="Location"  Foreground="{Binding ElementName=txtDireccion, Path=BorderBrush}" VerticalAlignment="Bottom" Margin="0 4"/>
+                            <TextBox x:Name="txtDireccion" Width="550" materialDesign:HintAssist.Hint="Direccion Compañia" materialDesign:HintAssist.IsFloating="True"/>
+                    </TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                    <TextBlock>
+                            <materialDesign:PackIcon Kind="Phone"  Foreground="{Binding ElementName=txtTelefonoC, Path=BorderBrush}" VerticalAlignment="Bottom" Margin="0 4"/>
+                            <TextBox x:Name="txtTelefonoC" Width="150" materialDesign:HintAssist.Hint="Telefono" materialDesign:HintAssist.IsFloating="True"/>
+                    </TextBlock>
+
+                    <TextBlock Margin="30 0 0 0">
+                            <materialDesign:PackIcon Kind="Email"  Foreground="{Binding ElementName=txtEmail, Path=BorderBrush}" VerticalAlignment="Bottom" Margin="0 4"/>
+                            <TextBox x:Name="txtEmail" Width="250" materialDesign:HintAssist.Hint="Email" materialDesign:HintAssist.IsFloating="True"/>
+                    </TextBlock>
+
+                    <TextBlock Margin="40 0 0 0">
+                            <materialDesign:PackIcon Kind="Worker"  Foreground="{Binding ElementName=txtPuesto, Path=BorderBrush}" VerticalAlignment="Bottom" Margin="0 4"/>
+                            <TextBox x:Name="txtPuesto" Width="500" materialDesign:HintAssist.Hint="Puesto" materialDesign:HintAssist.IsFloating="True"/>
+                    </TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                    <TextBlock>
+                            <materialDesign:PackIcon Kind="Company"  Foreground="{Binding ElementName=txtDepto, Path=BorderBrush}" VerticalAlignment="Bottom" Margin="0 4"/>
+                            <TextBox x:Name="txtDepto" Width="300" materialDesign:HintAssist.Hint="Departamento" materialDesign:HintAssist.IsFloating="True"/>
+                    </TextBlock>
+
+                    <TextBlock Margin="30 0 0 0">
+                            <materialDesign:PackIcon Kind="School"  Foreground="{Binding ElementName=txtNivelacademico, Path=BorderBrush}" VerticalAlignment="Bottom" Margin="0 4"/>
+                            <TextBox x:Name="txtNivelacademico" Width="300" materialDesign:HintAssist.Hint="Nivel Academico" materialDesign:HintAssist.IsFloating="True"/>
+                    </TextBlock>
+
+                    <TextBlock Margin="30 0 0 0">
+                            <Label  Width="120" Content="Fecha de ingreso"  Margin="0 6" Foreground="Gray"/>
+                    </TextBlock>
+
+                    <DatePicker Height="25" HorizontalAlignment="Left" Margin="30,12,0,0" x:Name="txtfechaIngreso" VerticalAlignment="Top" Width="150" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                    <TextBlock>
+                            <materialDesign:PackIcon Kind="Comment"  Foreground="{Binding ElementName=txtComentarios, Path=BorderBrush}" VerticalAlignment="Bottom" Margin="0 4"/>
+                            <TextBox x:Name="txtComentarios" Width="1000" materialDesign:HintAssist.Hint="Comentarios" materialDesign:HintAssist.IsFloating="True"/>
+                    </TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+
+                    <Button Style="{DynamicResource MaterialDesignFlatButton}" Content="Cancelar" HorizontalAlignment="Right" Width="130"  
+                        Margin="0 20 50 0" Click="Button_Click_2"/>
+
+                    <Button Style="{DynamicResource MaterialDesignRaisedDarkButton}" Content="Actualizar" HorizontalAlignment="Right" Width="130"  
+                        Margin="0 20 50 0" Click="Button_Click_1"/>
+
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Window>
